@@ -23,6 +23,9 @@ namespace Chain.Maps
               .HasColumnName(TableConstans.ColumnStatus)
               .IsRequired();
 
+            builder.Property(p => p.CompanyId)
+                .HasColumnName(TableConstans.ColumnCompanyId);
+
         }
     }
 }

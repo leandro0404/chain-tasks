@@ -10,10 +10,7 @@ namespace Chain.Maps
         {
             builder.ToTable(TableConstans.TableHeartBeatProcessed);
 
-            builder.HasKey(bc => new { bc.ProcessedId, bc.TaskNo });
-
-            builder.Property(p => p.ProcessedId)
-               .HasColumnName(TableConstans.ColumnProcessedId);
+            builder.HasKey(p => p.TaskNo);
 
             builder.Property(p => p.TaskNo)
                 .HasColumnName(TableConstans.ColumnTaskNo);
@@ -24,8 +21,7 @@ namespace Chain.Maps
                .IsRequired();
 
             builder.Property(p => p.Msg)
-              .HasColumnName(TableConstans.ColumnMsg)
-              .HasMaxLength(200);
+              .HasColumnName(TableConstans.ColumnMsg);
 
             builder.Property(p => p.Result)
              .HasColumnName(TableConstans.ColumnResult);
@@ -40,11 +36,16 @@ namespace Chain.Maps
                 .HasColumnName(TableConstans.ColumnCreated);
 
             builder.Property(p => p.InterfaceName)
-              .HasColumnName(TableConstans.ColumnInterfaceName)
-              .HasMaxLength(50); 
+              .HasColumnName(TableConstans.ColumnInterfaceName);
 
             builder.Property(p => p.Command)
              .HasColumnName(TableConstans.ColumnCommand);
+
+            builder.Property(p => p.CompanyId)
+             .HasColumnName(TableConstans.ColumnCompanyId);
+
+            builder.Property(p => p.Received)
+             .HasColumnName(TableConstans.ColumnReceived);
 
         }
     }

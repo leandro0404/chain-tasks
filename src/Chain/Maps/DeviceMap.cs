@@ -20,33 +20,24 @@ namespace Chain.Maps
              .HasMaxLength(36);
 
             builder.Property(p => p.Ip)
-                .HasColumnName(TableConstans.ColumnIp)
-                .HasMaxLength(15)
-                .IsRequired();
+                .HasColumnName(TableConstans.ColumnIp);
 
             builder.Property(p => p.Time)
-                .HasColumnName(TableConstans.ColumnTime)
-                .HasMaxLength(15)
-                .IsRequired();
+                .HasColumnName(TableConstans.ColumnTime);
 
             builder.Property(p => p.Version)
-                .HasColumnName(TableConstans.ColumnVersion)
-                .HasMaxLength(15)
-                .IsRequired();
+                .HasColumnName(TableConstans.ColumnVersion);
 
             builder.Property(p => p.PersonCount)
-                .HasColumnName(TableConstans.ColumnPersonCount)
-                .HasMaxLength(5)
-                .IsRequired();
+                .HasColumnName(TableConstans.ColumnPersonCount);
 
             builder.Property(p => p.FaceCount)
-                .HasColumnName(TableConstans.ColumnFaceCount)
-                .HasMaxLength(5)
-                .IsRequired();
+                .HasColumnName(TableConstans.ColumnFaceCount);
 
             builder.Property(p => p.Status)
-              .HasColumnName(TableConstans.ColumnStatus)
-              .IsRequired();           
+             .HasColumnName(TableConstans.ColumnStatus)
+             .IsRequired();
+
         }
     }
 }

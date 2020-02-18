@@ -33,6 +33,7 @@ namespace Chain
         public const string ColumnPersonCount = "personCount";
         public const string ColumnProcessedId = "processedId";
         public const string ColumnResult = "result";
+        public const string ColumnReceived = "received";
         public const string ColumnStatus = "status";
         public const string ColumnSuccess = "success";
         public const string ColumnVersion = "version";

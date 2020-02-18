@@ -12,10 +12,10 @@ namespace Chain.Maps
             builder.Property(p => p.TaskNo)
                 .HasColumnName(TableConstans.ColumnTaskNo);
 
-            builder.HasKey(p => p.TaskNo);
-
             builder.Property(p => p.InterfaceName)
-                .HasColumnName(TableConstans.ColumnInterfaceName);
+               .HasColumnName(TableConstans.ColumnInterfaceName);
+
+            builder.HasKey(p => p.TaskNo);
 
             builder.Property(p => p.Command)
                 .HasColumnName(TableConstans.ColumnCommand);
@@ -24,8 +24,19 @@ namespace Chain.Maps
                 .HasColumnName(TableConstans.ColumnCreated);
 
             builder.Property(p => p.Status)
-              .HasColumnName(TableConstans.ColumnStatus)
-              .IsRequired();
+             .HasColumnName(TableConstans.ColumnStatus)
+             .IsRequired();
+
+            builder.Property(p => p.DeviceKey)
+              .HasColumnName(TableConstans.ColumnDeviceKey)
+              .HasMaxLength(36);
+
+            builder.HasOne(d => d.Device)
+                .WithMany(p => p.Tasks)
+                .HasForeignKey(d => d.DeviceKey);
+
+            builder.Property(p => p.CompanyId)
+           .HasColumnName(TableConstans.ColumnCompanyId);
 
         }
     }

@@ -23,35 +23,35 @@ namespace Chain
             //}
             //});
 
-            var user = context.User.Include("Company").First();
+            //var user = context.User.Include("Company").First();
 
 
-            var device = new Device()
-            {
-                DeviceKey = "84E0F4211455607A",
-                FaceCount = "",
-                PersonCount = "",
-                Ip = "",
-                Version = "",
-                Time = "",
+            //var device = new Device()
+            //{
+            //    DeviceKey = "84E0F4211455607A",
+            //    FaceCount = "",
+            //    PersonCount = "",
+            //    Ip = "",
+            //    Version = "",
+            //    Time = "",
 
-            };
+            //};
 
-            var userDevice = new UserDevice
-            {
-                Device = device,
-                User = user,
+            //var userDevice = new UserDevice
+            //{
+            //    Device = device,
+            //    User = user,
 
-            };
+            //};
 
-            var list = new List<UserDevice>();
-            list.Add(userDevice);
+            //var list = new List<UserDevice>();
+            //list.Add(userDevice);
 
-            user.UserDevices = list;
+            //user.UserDevices = list;
 
 
 
-            context.SaveChanges();
+            //context.SaveChanges();
 
 
 

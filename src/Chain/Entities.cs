@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Chain
 {
     public class User
     {
         public Guid UserId { get; set; }
-        public string Name { get; set; }
-        public ICollection<UserDevice> UserDevices { get; set; }
-        public Company Company { get; set; }
+        public string Name { get; set; }       
+        public Guid CompanyId { get; set; }    
         public StatusEnum Status { get; set; }
+        public virtual Company Company { get; set; }
+        public virtual ICollection<UserDevice> UserDevices { get; set; }
+
     }
     public class Device
     {
@@ -21,8 +24,8 @@ namespace Chain
         public string PersonCount { get; set; }
         public string FaceCount { get; set; }
         public StatusEnum Status { get; set; }
-        public ICollection<UserDevice> UserDevices { get; set; }
-        public ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<UserDevice> UserDevices { get; set; }
+        public virtual ICollection<Task> Tasks { get; set; }
 
     }
     public class UserDevice
@@ -40,7 +43,9 @@ namespace Chain
         public string Command { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
         public StatusTaskEnum Status { get; set; }
-        public Device Device { get; set; }
+        public string DeviceKey { get; set; }
+        public virtual Device Device { get; set; }
+        public Guid CompanyId { get; set; }
     }
     public class Company
     {
@@ -48,11 +53,10 @@ namespace Chain
         public string CompanyKey { get; set; }
         public string Name { get; set; }
         public StatusEnum Status { get; set; }
-        public ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
     public class Processed
     {
-        public Guid ProcessedId { get; set; }
         public Guid TaskNo { get; set; }
         public string DeviceKey { get; set; }
         public string InterfaceName { get; set; }
@@ -62,6 +66,8 @@ namespace Chain
         public bool Success { get; set; }
         public string Data { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
+        public Guid CompanyId { get; set; }
+        public bool Received { get; set; } = false;
     }
     public enum StatusTaskEnum
     {
